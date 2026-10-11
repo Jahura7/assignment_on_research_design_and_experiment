@@ -1,3 +1,4 @@
+%%writefile methodology.md
 # Methodology: Machine Learning-Based Predictive Modeling for Stroke Risk Classification
 
 ## 1. Refined Research Question
