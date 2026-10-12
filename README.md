@@ -184,6 +184,10 @@ Created as a machine-learning learning and portfolio project.
 
 ## License
 
+The original code and documentation in this repository are licensed under the MIT License.
+
+The dataset is sourced from Kaggle — Stroke Risk Prediction Dataset and remains subject to its original license and terms. Please consult the Kaggle dataset page before redistributing or reusing the dataset.
+
 This repository contains original project documentation and machine-learning experiments developed for educational and portfolio purposes.
 
 The dataset used in this project was obtained from Kaggle:
