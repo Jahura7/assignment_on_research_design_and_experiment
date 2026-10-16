@@ -159,3 +159,16 @@ Third, the target is imbalanced: only 7.03% of records are Low risk. Although `c
 
 These limitations mean that the reported performance should be interpreted as an initial experiment in reproducing labels within this dataset. It does not demonstrate that the model predicts future strokes or is ready for clinical use. Before any healthcare application, data provenance and label definitions must be verified, leakage risks addressed, preprocessing corrected, and the model evaluated on independent, clinically reliable data from representative populations.
 
+## 5. Conclusion
+
+In this experiment, the Random Forest Classifier outperformed a rounded Linear Regression baseline when classifying the dataset’s assigned High, Low, and Moderate stroke-risk categories. Random Forest achieved 85.38% accuracy and a macro F1-score of 77.94%, while the baseline achieved 41.35% accuracy and a macro F1-score of 28.81%. However, Random Forest recall was lower for Low (57.33%) and High (66.56%) than for Moderate (94.88%), showing that overall accuracy does not fully describe class-level performance. Potential preprocessing leakage and the prominence of `Doctor_Consultation_Needed` must be investigated, and the labels require independent validation. The findings are therefore preliminary evidence of classification performance on this dataset, not validated prediction of future stroke events or a basis for clinical decisions.
+
+## References
+
+Asadi, F., Rahimi, M., Daeechini, A. H., & Paghe, A. (2024). The most efficient machine learning algorithms in stroke prediction: A systematic review. *Health Science Reports, 7*(10), e70062. https://doi.org/10.1002/hsr2.70062
+
+Asowata, O. J., Okekunle, A. P., Olaiya, M. T., Akinyemi, J., Owolabi, M., & Akpa, O. M. (2024). Stroke risk prediction models: A systematic review and meta-analysis. *Journal of the Neurological Sciences, 460*, 122997. https://doi.org/10.1016/j.jns.2024.122997
+
+Orfanoudaki, A., Chesley, E., Cadisch, C., Stein, B., Nouh, A., Alberts, M. J., & Bertsimas, D. (2020). Machine learning provides evidence that stroke risk is not linear: The non-linear Framingham stroke risk score. *PLOS ONE, 15*(5), e0232414. https://doi.org/10.1371/journal.pone.0232414
+
+World Health Organization. (n.d.). *Cardiovascular diseases (CVDs).* https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-%28cvds%29
