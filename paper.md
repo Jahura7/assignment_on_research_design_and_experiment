@@ -84,15 +84,15 @@ Thirteen columns contained missing observations. The largest gaps were in height
 
 **Figure 2. Missing values in dataset features**
 
-<img width="1087" height="590" alt="model_performance_comparison" src="https://github.com/user-attachments/assets/f7dea43c-a401-42c9-930f-feee3e45164b" />
+<img width="1601" height="985" alt="missing_values" src="https://github.com/user-attachments/assets/894a410e-1e71-4680-9fa0-0f2d218ceb5a" />
+
 
 
 The notebook’s selected-variable correlation matrix showed that `Stroke_Risk_Score` had positive correlations with age (r = 0.36), systolic blood pressure (r = 0.31), blood glucose (r = 0.27), and BMI (r = 0.11). The score was excluded from the final model predictors because it may be related to the target-label construction. These correlations are descriptive and do not establish causality.
 
 **Figure 3. Correlation matrix of selected quantitative indicators**
 
-<img width="989" height="590" alt="random_forest_feature_importance" src="https://github.com/user-attachments/assets/9e3697b2-fb8b-4244-8ac3-55327444487c" />
-
+<img width="777" height="680" alt="correlation_matrix" src="https://github.com/user-attachments/assets/b5941cc9-39f7-46f2-9a9b-9fd8966f18d5" />
 
 The notebook’s group comparisons found a mean age of 63.4 years in the High-risk group and 52.1 years in the Moderate-risk group. Mean blood glucose was 160.00 mg/dL in the High-risk group and 142.14 mg/dL in the Moderate-risk group. These are descriptive comparisons across pre-assigned categories; they do not establish causality, statistical significance, or validated clinical risk.
 
@@ -109,7 +109,29 @@ The models were evaluated on 10,000 test records. Random Forest outperformed the
 
 **Figure 4. Model performance comparison on the test set**
 
-<img width="777" height="680" alt="correlation_matrix" src="https://github.com/user-attachments/assets/b5941cc9-39f7-46f2-9a9b-9fd8966f18d5" />
-
+<img width="1087" height="590" alt="model_performance_comparison" src="https://github.com/user-attachments/assets/4eba4bed-fb95-4366-8119-33571e4742b3" />
 
 Random Forest improved accuracy by 44.03 percentage points and macro F1-score by 49.13 percentage points relative to the rounded Linear Regression baseline. Because Linear Regression is not designed for nominal multiclass classification, this comparison should be interpreted as a requested baseline comparison, not a fair comparison between two equally suitable classifiers.
+
+### 3.4 Class-level performance and confusion matrices
+
+The Random Forest classification report showed the following class-level results:
+
+**Table 3. Random Forest class-level performance**
+
+| Class | Precision | Recall | F1-score | Test support |
+|---|---:|---:|---:|---:|
+| High | 0.84 | 0.67 | 0.74 | 2,422 |
+| Low | 0.88 | 0.57 | 0.69 | 703 |
+| Moderate | 0.85 | 0.95 | 0.90 | 6,875 |
+| **Macro average** | **0.86** | **0.73** | **0.78** | **10,000** |
+| Weighted average | 0.85 | 0.85 | 0.85 | 10,000 |
+
+**Figure 5. Confusion-matrix comparison**
+
+<img width="1290" height="515" alt="confusion_matrix_comparison" src="https://github.com/user-attachments/assets/07b70132-3447-4b89-a2a3-c04be474f726" />
+
+
+Random Forest correctly classified 6,523 of 6,875 Moderate-risk records, 1,612 of 2,422 High-risk records, and 403 of 703 Low-risk records. Its recall was highest for Moderate (94.88%), followed by High (66.56%) and Low (57.33%). Thus, the model missed or confused a meaningful share of the High- and Low-risk records, despite its overall accuracy of 85.38%.
+
+The rounded Linear Regression baseline had especially weak class-level performance: its recall was approximately 10% for High and 0% for Low, and it frequently assigned records to the Low or Moderate encoded classes. Its macro F1-score of 28.81% reflects this poor balance across categories.
