@@ -27,3 +27,38 @@ Candidate predictors include age, gender, country, height, weight, BMI, systolic
 
 `Patient_ID` and `AI_Health_Recommendation` were removed before modelling. `Stroke_Risk_Score` was excluded from the final predictor matrix because it could be closely related to how the target label was assigned and could introduce target leakage.
 
+### 2.2 Data inspection and preprocessing
+
+Two additional features were created:
+
+- **Pulse Pressure:** systolic blood pressure minus diastolic blood pressure.
+- **Metabolic Risk Index:** blood glucose multiplied by BMI.
+
+These are exploratory engineered features; the glucose–BMI product is not a clinically validated risk score. The final predictor matrix contained 38 columns. `Stroke_Risk_Score` was excluded from this matrix, along with the identifier, recommendation text, and target.
+
+One additional caution concerns `Doctor_Consultation_Needed`, which remains among the predictors and is the most important feature in the Random Forest plot. If this field was derived from the same rules or variables used to assign `Stroke_Risk`, it may act as a proxy for the target and inflate apparent performance. Its provenance should be checked, and a sensitivity analysis should compare results with and without this field.
+
+EDA included inspection of the dataset dimensions, data types, descriptive statistics, target counts, missing-value counts, and selected correlations. The notebook found missing observations in 13 columns. The largest counts were for `Height_cm` (1,525; 3.05%) and `Weight_kg` (1,523; 3.05%). Missing values were handled using median imputation for numerical columns and most-frequent imputation for categorical columns. Categorical predictors were encoded using `LabelEncoder`.
+
+### 2.3 Feature engineering and leakage controls
+
+### 2.4 Train–test split and models
+
+The notebook used `train_test_split` with a 20% test fraction, `random_state=42`, and stratification by target. This resulted in 40,000 training records and 10,000 test records. The encoded class order was High, Low, and Moderate.
+
+Two models were compared:
+
+1. **Linear Regression baseline:** Linear Regression produces continuous predictions, which the notebook rounded and clipped to the available encoded class indices to calculate classification metrics. This is a weak baseline for multiclass classification because the encoded class numbers are nominal labels rather than a meaningful continuous scale.
+2. **Random Forest Classifier:** the model used 200 trees, `class_weight='balanced'`, `min_samples_leaf=2`, `random_state=42`, and `n_jobs=-1`.
+
+The notebook standardised the predictors for Linear Regression and used unscaled predictors for Random Forest.
+
+### 2.5 Evaluation metrics
+
+Both models were evaluated on the same held-out test set using accuracy, macro precision, macro recall, and macro F1-score. Macro averages weight the three classes equally and are useful when class proportions are uneven. Class-level precision, recall, F1-score, and confusion matrices were also examined. Random Forest feature importance was plotted to describe which input features contributed most to the fitted model; importance does not establish causality.
+
+## 3. Results
+
+### 3.1 Target-class distribution
+
+The dataset contains 34,375 Moderate-risk records (68.75%), 12,112 High-risk records (24.22%), and 3,513 Low-risk records (7.03%). Moderate is the majority class, while Low is substantially underrepresented.
