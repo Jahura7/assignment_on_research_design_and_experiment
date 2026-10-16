@@ -63,9 +63,11 @@ Both models were evaluated on the same held-out test set using accuracy, macro p
 
 The dataset contains 34,375 Moderate-risk records (68.75%), 12,112 High-risk records (24.22%), and 3,513 Low-risk records (7.03%). Moderate is the majority class, while Low is substantially underrepresented.
 
+
 **Figure 1. Distribution of the assigned stroke-risk categories**
 
-![Bar chart of the target-class distribution](figures/target_distribution.png)
+<img width="558" height="393" alt="target_distribution" src="https://github.com/user-attachments/assets/4507ab02-212d-48a3-b7b3-6b27e2bfb295" />
+
 
 **Table 1. Target-class distribution**
 
