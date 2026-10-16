@@ -17,3 +17,13 @@ This project uses a structured dataset with 50,000 records and 40 columns. Its t
 
 **Research question:** How effectively can the dataset’s assigned High, Low, and Moderate stroke-risk categories be classified from the available predictors, and how does a Random Forest classifier compare with a rounded Linear Regression baseline on a held-out test set?
 
+## 2. Methodology
+
+### 2.1 Study design and dataset
+
+This is a quantitative supervised-learning experiment using the file `stroke_risk_prediction_dataset.csv`. The notebook reports 50,000 rows and 40 columns. The target variable is `Stroke_Risk`. The class distribution is shown in Figure 1 and summarized in Table 1.
+
+Candidate predictors include age, gender, country, height, weight, BMI, systolic and diastolic blood pressure, heart rate, glucose, HbA1c, cholesterol and lipid measurements, smoking and alcohol status, physical activity, sleep, stress, diet, family history, and medical-history indicators.
+
+`Patient_ID` and `AI_Health_Recommendation` were removed before modelling. `Stroke_Risk_Score` was excluded from the final predictor matrix because it could be closely related to how the target label was assigned and could introduce target leakage.
+
