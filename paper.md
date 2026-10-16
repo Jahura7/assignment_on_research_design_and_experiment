@@ -77,3 +77,21 @@ The dataset contains 34,375 Moderate-risk records (68.75%), 12,112 High-risk rec
 | High | 12,112 | 24.22% |
 | Low | 3,513 | 7.03% |
 | **Total** | **50,000** | **100.00%** |
+
+### 3.2 Missing data and descriptive patterns
+
+Thirteen columns contained missing observations. The largest gaps were in height and weight (approximately 3.05% of records each); other listed variables had missingness between 0.44% for age and 2.11% for exercise hours per week.
+
+**Figure 2. Missing values in dataset features**
+
+<img width="1087" height="590" alt="model_performance_comparison" src="https://github.com/user-attachments/assets/f7dea43c-a401-42c9-930f-feee3e45164b" />
+
+
+The notebook’s selected-variable correlation matrix showed that `Stroke_Risk_Score` had positive correlations with age (r = 0.36), systolic blood pressure (r = 0.31), blood glucose (r = 0.27), and BMI (r = 0.11). The score was excluded from the final model predictors because it may be related to the target-label construction. These correlations are descriptive and do not establish causality.
+
+**Figure 3. Correlation matrix of selected quantitative indicators**
+
+<img width="989" height="590" alt="random_forest_feature_importance" src="https://github.com/user-attachments/assets/9e3697b2-fb8b-4244-8ac3-55327444487c" />
+
+
+The notebook’s group comparisons found a mean age of 63.4 years in the High-risk group and 52.1 years in the Moderate-risk group. Mean blood glucose was 160.00 mg/dL in the High-risk group and 142.14 mg/dL in the Moderate-risk group. These are descriptive comparisons across pre-assigned categories; they do not establish causality, statistical significance, or validated clinical risk.
