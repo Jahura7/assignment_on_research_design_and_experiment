@@ -132,6 +132,17 @@ The Random Forest classification report showed the following class-level results
 <img width="1290" height="515" alt="confusion_matrix_comparison" src="https://github.com/user-attachments/assets/07b70132-3447-4b89-a2a3-c04be474f726" />
 
 
+### 3.5 Random Forest feature importance
+
+The notebook’s feature-importance plot ranked `Doctor_Consultation_Needed` as the most important feature, followed by `Age`, `Blood_Pressure_Systolic`, `HbA1c`, `Blood_Glucose`, and `Metabolic_Risk_Index`. Other prominent features included total cholesterol, LDL, diastolic blood pressure, pulse pressure, triglycerides, HDL, BMI, daily walking minutes, and weight.
+
+**Figure 6. Top 15 Random Forest feature importances**
+
+<img width="989" height="590" alt="random_forest_feature_importance" src="https://github.com/user-attachments/assets/6305980c-f216-4d33-bf3d-5d9beaa85073" />
+
+
+These rankings describe how the fitted Random Forest used the available predictors. They are not evidence that a feature causes stroke risk. The high ranking of `Doctor_Consultation_Needed` warrants particular investigation for possible target leakage or a proxy relationship with the target labels.
+
 Random Forest correctly classified 6,523 of 6,875 Moderate-risk records, 1,612 of 2,422 High-risk records, and 403 of 703 Low-risk records. Its recall was highest for Moderate (94.88%), followed by High (66.56%) and Low (57.33%). Thus, the model missed or confused a meaningful share of the High- and Low-risk records, despite its overall accuracy of 85.38%.
 
 The rounded Linear Regression baseline had especially weak class-level performance: its recall was approximately 10% for High and 0% for Low, and it frequently assigned records to the Low or Moderate encoded classes. Its macro F1-score of 28.81% reflects this poor balance across categories.
