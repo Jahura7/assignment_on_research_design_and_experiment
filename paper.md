@@ -95,3 +95,21 @@ The notebook’s selected-variable correlation matrix showed that `Stroke_Risk_S
 
 
 The notebook’s group comparisons found a mean age of 63.4 years in the High-risk group and 52.1 years in the Moderate-risk group. Mean blood glucose was 160.00 mg/dL in the High-risk group and 142.14 mg/dL in the Moderate-risk group. These are descriptive comparisons across pre-assigned categories; they do not establish causality, statistical significance, or validated clinical risk.
+
+### 3.3 Comparative model performance
+
+The models were evaluated on 10,000 test records. Random Forest outperformed the rounded Linear Regression baseline on all four reported metrics.
+
+**Table 2. Test-set model performance**
+
+| Model | Accuracy | Macro precision | Macro recall | Macro F1-score |
+|---|---:|---:|---:|---:|
+| Linear Regression (rounded predictions) | 0.4135 (41.35%) | 0.6096 (60.96%) | 0.2230 (22.30%) | 0.2881 (28.81%) |
+| Random Forest Classifier | 0.8538 (85.38%) | 0.8601 (86.01%) | 0.7292 (72.92%) | 0.7794 (77.94%) |
+
+**Figure 4. Model performance comparison on the test set**
+
+<img width="777" height="680" alt="correlation_matrix" src="https://github.com/user-attachments/assets/b5941cc9-39f7-46f2-9a9b-9fd8966f18d5" />
+
+
+Random Forest improved accuracy by 44.03 percentage points and macro F1-score by 49.13 percentage points relative to the rounded Linear Regression baseline. Because Linear Regression is not designed for nominal multiclass classification, this comparison should be interpreted as a requested baseline comparison, not a fair comparison between two equally suitable classifiers.
