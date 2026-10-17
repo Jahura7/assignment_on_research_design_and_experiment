@@ -15,7 +15,8 @@ This repository contains the research paper, experiment notebook, and presentati
 [View the Colab Notebook](https://github.com/Jahura7/assignment_on_research_design_experiment_and_writing_reseaech_paper/blob/experiment/experiment.ipynb)
 
 ### 📊 Presentation Slides
-[View or Download the Presentation](presentation.pptx)
+[Download the PowerPoint presentation](https://github.com/Jahura7/assignment_on_research_design_experiment_and_writing_reseaech_paper/raw/refs/heads/main/presentation.pptx)
+
 
 ## Project Overview
 
