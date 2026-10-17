@@ -4,6 +4,19 @@ A machine-learning project exploring how demographic, physiological, lifestyle, 
 
 > **Disclaimer:** This is an educational project, not a medical device. The predictions represent the labels in the supplied dataset and must not be used for diagnosis, treatment, or individual medical decisions.
 
+## Research Documents
+
+This repository contains the research paper, experiment notebook, and presentation slides for the Stroke-Risk Category Classification with Machine Learning project.
+
+### 📄 Research Paper
+[Read the Research Paper](paper.md)
+
+### 💻 Experiment Notebook
+[View the Colab Notebook](https://github.com/Jahura7/assignment_on_research_design_experiment_and_writing_reseaech_paper/blob/experiment/experiment.ipynb)
+
+### 📊 Presentation Slides
+[View or Download the Presentation](presentation.pptx)
+
 ## Project Overview
 
 Stroke is a serious health concern, and risk-related datasets provide an opportunity to explore how data analysis and machine learning can identify patterns in health-related information. This project investigates and compares two models on a structured stroke-risk dataset:
