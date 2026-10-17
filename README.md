@@ -11,11 +11,11 @@ This repository contains the research paper, experiment notebook, and presentati
 ### 📄 Research Paper
 [Read the Research Paper](paper.md)
 
-### 💻 Colab Notebook
-[Open the Experiment Notebook](experiment%282%29.ipynb)
+### 💻 Experiment Notebook
+[View the Colab Notebook](https://github.com/Jahura7/assignment_on_research_design_experiment_and_writing_reseaech_paper/blob/experiment/experiment.ipynb)
 
 ### 📊 Presentation Slides
-[View the PowerPoint Slides](presentation.pptx)
+[View or Download the Presentation](presentation.pptx)
 
 
 ## Project Overview
